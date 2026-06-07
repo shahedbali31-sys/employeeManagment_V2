@@ -1,0 +1,36 @@
+<div class="card">
+    <h2>👤 Add Employee</h2>
+
+    <form [formGroup]="employeeForm">
+        <table class="form-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-input" type="text" placeholder="Enter name" formControlName="name">
+                    </td>
+                    <td>
+                        <input class="form-input" type="text" placeholder="Enter department"
+                            formControlName="department">
+                    </td>
+                    <td>
+                        <input class="form-input" type="number" placeholder="Enter salary (number)"
+                            formControlName="salary">
+                    </td>
+                    <td>
+                        <button class="AddEmployee-btn" (click)="addEmployee()">
+                            + Add
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

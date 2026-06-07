@@ -1,0 +1,38 @@
+<div class="card">
+    <h2>Employee List</h2>
+
+    <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" placeholder="Search by name..." [(ngModel)]="searchText"
+            (input)="onSearch()">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.department }}</td>
+                <td>{{ employee.salary }}</td>
+                <td>
+                    <button class="delete-btn" (click)="deleteEmployee(employee._id!)">
+                        🗑 Delete
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="employees.length === 0">
+                <td colspan="5">No employees found.</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="goToAddEmployee()">Add Employee</button>
+</div>

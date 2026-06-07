@@ -1,0 +1,86 @@
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    max-width: 900px;
+    margin: 32px auto;
+}
+
+.card h2 {
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    color: #1a1a2e;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+thead tr {
+    background: #f0f0f0;
+}
+
+th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ── Inputs ── */
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    color: #333;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: #888;
+    background: #fafafa;
+}
+
+.form-input::placeholder {
+    color: #aaa;
+}
+
+/* ── Add button ── */
+.AddEmployee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.AddEmployee-btn:hover {
+    background: #c3e6cb;
+    border-color: #155724;
+}
+
+.AddEmployee-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
