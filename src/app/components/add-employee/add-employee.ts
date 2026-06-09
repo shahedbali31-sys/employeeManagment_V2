@@ -44,10 +44,11 @@ export class AddEmployee implements OnInit {
     };
 
     this.employeeService.addEmployee(newEmployee).subscribe({
-      next: () => {
-        this.employeeForm.reset();
-        this.router.navigate(['/employees']);
-      },
+     next: () => {
+  this.isLoading = false; 
+  this.employeeForm.reset();
+  this.router.navigate(['/employees']);
+},
       error: (err) => {
         this.errorMessage = err.error?.message || 'Error adding employee';
         this.isLoading = false;

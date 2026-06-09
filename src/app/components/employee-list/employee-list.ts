@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
@@ -13,21 +13,27 @@ export class EmployeeList implements OnInit {
   employees: Employee[] = [];
   searchText: string = '';
 
-  constructor(private employeeService: EmployeeService, private router: Router) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {
+  
+  }
 
   ngOnInit(): void {
     this.loadEmployees();
   }
 
- loadEmployees(): void {
-  this.employeeService.getEmployees().subscribe({
-    next: (data) => {
-      console.log('Employees:', data);
-      this.employees = data;
-    },
-    error: (err) => console.error('Error loading employees:', err),
-  });
-}
+  loadEmployees(): void {
+    this.employeeService.getEmployees(this.searchText || undefined).subscribe({
+      next: (data) => {
+        this.employees = [...data];
+        this.cdr.detectChanges();
+      },
+      error: (err) => console.error('Error loading employees:', err),
+    });
+  }
 
   onSearch(): void {
     this.loadEmployees();
