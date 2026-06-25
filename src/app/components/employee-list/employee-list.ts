@@ -17,9 +17,7 @@ export class EmployeeList implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private cdr: ChangeDetectorRef
-  ) {
-  
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -39,7 +37,7 @@ export class EmployeeList implements OnInit {
     this.loadEmployees();
   }
 
-  deleteEmployee(id: string): void {
+  deleteEmployee(id: any): void {
     const confirmDelete = confirm('Are you sure?');
     if (confirmDelete) {
       this.employeeService.deleteEmployee(id).subscribe({
@@ -51,5 +49,9 @@ export class EmployeeList implements OnInit {
 
   goToAddEmployee(): void {
     this.router.navigate(['/add-employee']);
+  }
+
+  goToUpdateEmployee(id: any): void {
+    this.router.navigate(['/update-employee', id]);
   }
 }

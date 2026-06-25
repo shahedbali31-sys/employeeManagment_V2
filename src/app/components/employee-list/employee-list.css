@@ -69,16 +69,22 @@ tbody tr:hover {
     background: #fafafa;
 }
 
+.action-btns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .delete-btn {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
     background: #fff0f0;
     color: #d9534f;
     border: 1px solid #f5c6c5;
     border-radius: 5px;
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 6px 10px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
 }
@@ -88,7 +94,26 @@ tbody tr:hover {
     border-color: #d9534f;
 }
 
-.AddEmployee-btn {
+.update-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff8e1;
+    color: #e0a800;
+    border: 1px solid #ffe082;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.update-btn:hover {
+    background: #ffe082;
+    border-color: #e0a800;
+}
+
+.add-btn {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -100,9 +125,10 @@ tbody tr:hover {
     font-size: 0.85rem;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
+    margin-top: 16px;
 }
 
-.AddEmployee-btn:hover {
+.add-btn:hover {
     background: #c3e6cb;
     border-color: #155724;
 }

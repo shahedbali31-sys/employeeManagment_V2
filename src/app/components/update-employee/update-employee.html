@@ -1,5 +1,5 @@
 <div class="card">
-    <h2>👤 Add Employee</h2>
+    <h2>✏️ Update Employee</h2>
 
     <form [formGroup]="employeeForm">
         <table class="form-table">
@@ -29,8 +29,8 @@
                             formControlName="salary">
                     </td>
                     <td>
-                        <button class="AddEmployee-btn" (click)="addEmployee()">
-                            + Add
+                        <button class="update-btn" (click)="updateEmployee()" [disabled]="isLoading">
+                            ✏️ Update
                         </button>
                     </td>
                 </tr>
