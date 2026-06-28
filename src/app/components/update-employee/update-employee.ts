@@ -79,4 +79,8 @@ export class UpdateEmployee implements OnInit {
       },
     });
   }
+
+  goBack(): void {
+    this.router.navigate(['/employees']);
+  }
 }

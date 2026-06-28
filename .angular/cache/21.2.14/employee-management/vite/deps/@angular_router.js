@@ -1,7 +1,8 @@
 import {
   Title
-} from "./chunk-KLGR5MTJ.js";
+} from "./chunk-IUB3NKST.js";
 import "./chunk-752PTYYQ.js";
+import "./chunk-HDIB3HWH.js";
 import {
   HashLocationStrategy,
   Location,

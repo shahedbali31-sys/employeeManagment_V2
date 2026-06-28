@@ -1,0 +1,16 @@
+<div class="login-container">
+    <div class="login-card">
+        <h2>🔐 Login</h2>
+        <div class="form-group">
+            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="username" (keyup.enter)="login()">
+        </div>
+        <div class="form-group password-group">
+            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()">
+            <span class="eye-icon" (click)="togglePassword()">
+                {{ showPassword ? '🙈' : '👁️' }}
+            </span>
+        </div>
+        <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
+        <button class="login-btn" (click)="login()">Login</button>
+    </div>
+</div>

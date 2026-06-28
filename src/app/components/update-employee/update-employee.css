@@ -81,3 +81,21 @@ td {
     opacity: 0.5;
     cursor: not-allowed;
 }
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f5f5f5;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.back-btn:hover {
+    background: #e0e0e0;
+    border-color: #bbb;
+}

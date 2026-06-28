@@ -63,4 +63,8 @@ export class AddEmployee implements OnInit {
       },
     });
   }
+
+  goBack(): void {
+    this.router.navigate(['/employees']);
+  }
 }

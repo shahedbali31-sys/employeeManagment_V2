@@ -28,9 +28,12 @@
                         <input class="form-input" type="number" placeholder="Enter salary (number)"
                             formControlName="salary">
                     </td>
-                    <td>
+                    <td style="display: flex; gap: 8px; align-items: center;">
                         <button class="update-btn" (click)="updateEmployee()" [disabled]="isLoading">
                             ✏️ Update
+                        </button>
+                        <button class="back-btn" (click)="goBack()">
+                            ← Back
                         </button>
                     </td>
                 </tr>
