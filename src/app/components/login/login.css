@@ -90,3 +90,28 @@
     margin-bottom: 12px;
     text-align: center;
 }
+
+.success-msg {
+    color: #155724;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.toggle-text {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.toggle-link {
+    color: #1a1a2e;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.toggle-link:hover {
+    color: #2d2d5e;
+}

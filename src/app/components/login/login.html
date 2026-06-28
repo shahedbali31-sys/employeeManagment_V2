@@ -1,16 +1,29 @@
 <div class="login-container">
     <div class="login-card">
-        <h2>🔐 Login</h2>
+        <h2>{{ isSignUp ? '📝 Sign Up' : '🔐 Login' }}</h2>
+
         <div class="form-group">
-            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="username" (keyup.enter)="login()">
+            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="username" (keyup.enter)="isSignUp ? signUp() : login()">
         </div>
         <div class="form-group password-group">
-            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()">
+            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="password" (keyup.enter)="isSignUp ? signUp() : login()">
             <span class="eye-icon" (click)="togglePassword()">
                 {{ showPassword ? '🙈' : '👁️' }}
             </span>
         </div>
+
         <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
-        <button class="login-btn" (click)="login()">Login</button>
+        <p class="success-msg" *ngIf="successMessage">{{ successMessage }}</p>
+
+        <button class="login-btn" (click)="isSignUp ? signUp() : login()">
+            {{ isSignUp ? 'Sign Up' : 'Login' }}
+        </button>
+
+        <p class="toggle-text">
+            {{ isSignUp ? 'Already have an account?' : "Don't have an account?" }}
+            <span class="toggle-link" (click)="toggleMode()">
+                {{ isSignUp ? 'Login' : 'Sign Up' }}
+            </span>
+        </p>
     </div>
 </div>
