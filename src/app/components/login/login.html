@@ -1,23 +1,28 @@
 <div class="login-container">
-    <div class="login-card">
+    <div class="login-card" *ngIf="!isForgotPassword">
         <h2>{{ isSignUp ? '📝 Sign Up' : '🔐 Login' }}</h2>
 
         <div class="form-group">
-            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="username" (keyup.enter)="isSignUp ? signUp() : login()">
+            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="username" (keyup.enter)="isSignUp ? askSignUpConfirm() : login()">
         </div>
         <div class="form-group password-group">
-            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="password" (keyup.enter)="isSignUp ? signUp() : login()">
+            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="password" (keyup.enter)="isSignUp ? askSignUpConfirm() : login()">
             <span class="eye-icon" (click)="togglePassword()">
                 {{ showPassword ? '🙈' : '👁️' }}
             </span>
         </div>
 
         <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
-        <p class="success-msg" *ngIf="successMessage">{{ successMessage }}</p>
 
-        <button class="login-btn" (click)="isSignUp ? signUp() : login()">
+        <button class="login-btn" (click)="isSignUp ? askSignUpConfirm() : login()">
             {{ isSignUp ? 'Sign Up' : 'Login' }}
         </button>
+
+        <p class="toggle-text" *ngIf="!isSignUp">
+            <span class="toggle-link" (click)="goToForgotPassword()">
+                Forgot password?
+            </span>
+        </p>
 
         <p class="toggle-text">
             {{ isSignUp ? 'Already have an account?' : "Don't have an account?" }}
@@ -25,5 +30,49 @@
                 {{ isSignUp ? 'Login' : 'Sign Up' }}
             </span>
         </p>
+    </div>
+
+    <div class="login-card" *ngIf="isForgotPassword">
+        <h2>🔑 Reset Password</h2>
+
+        <div class="form-group">
+            <input class="form-input" type="text" placeholder="Username" [(ngModel)]="resetUsername" (keyup.enter)="askResetConfirm()">
+        </div>
+        <div class="form-group password-group">
+            <input class="form-input" [type]="showPassword ? 'text' : 'password'" placeholder="New Password" [(ngModel)]="newPassword" (keyup.enter)="askResetConfirm()">
+            <span class="eye-icon" (click)="togglePassword()">
+                {{ showPassword ? '🙈' : '👁️' }}
+            </span>
+        </div>
+
+        <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <button class="login-btn" (click)="askResetConfirm()">Reset Password</button>
+
+        <p class="toggle-text">
+            <span class="toggle-link" (click)="backToLogin()">
+                ← Back to Login
+            </span>
+        </p>
+    </div>
+</div>
+
+<div class="toast-confirm" *ngIf="showSignUpConfirm">
+    <div class="toast-confirm-box">
+        <p>Are you sure you want to create this account?</p>
+        <div class="toast-confirm-btns">
+            <button class="confirm-yes" (click)="signUp()">Yes, Create</button>
+            <button class="confirm-no" (click)="showSignUpConfirm = false">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-confirm" *ngIf="showResetConfirm">
+    <div class="toast-confirm-box">
+        <p>Are you sure you want to reset the password?</p>
+        <div class="toast-confirm-btns">
+            <button class="confirm-yes" (click)="resetPassword()">Yes, Reset</button>
+            <button class="confirm-no" (click)="showResetConfirm = false">Cancel</button>
+        </div>
     </div>
 </div>

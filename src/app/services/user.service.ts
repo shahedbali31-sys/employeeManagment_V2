@@ -17,4 +17,8 @@ export class UserService {
   register(username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, { username, password });
   }
+
+  resetPassword(username: string, newPassword: string): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/reset-password`, { username, newPassword });
+  }
 }
